@@ -19,3 +19,19 @@ export const buildSubmissions = (outDir: string, data: SubmissionsData) => {
     );
   }
 };
+
+export const buildIndex = (outDir: string, links: string[]) => {
+  const outputFilePath = path.join(outDir, "index.html");
+  const contents = links.map((link) => <a href={`${link}.html`}>{link}</a>);
+  writeFile(
+    outputFilePath,
+    <Page title="Contents" description="">
+      <ul>
+        {contents.map((content) => (
+          <li>{content}</li>
+        ))}
+      </ul>
+    </Page>,
+    { overwrite: true }
+  );
+};

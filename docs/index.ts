@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync } from "fs";
 import path from "path";
-import { buildSubmissions } from "./scripts/build";
+import { buildIndex, buildSubmissions } from "./scripts/build";
 import { getFiles, getFolders } from "./utils/files";
 import { Language, LanguageToLanguageName } from "./utils/languages";
 import { Submission, SubmissionsData } from "./utils/types";
@@ -52,4 +52,5 @@ await (async () => {
   setup();
   const submissions = await getSubmissionsData(ROOTDIR);
   buildSubmissions(OUTDIR, submissions);
+  buildIndex(OUTDIR, Object.keys(submissions));
 })();
