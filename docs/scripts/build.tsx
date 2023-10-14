@@ -2,6 +2,7 @@ import path from "path";
 import Page from "../src/Page";
 import SubmissionBlock from "../src/SubmissionBlock";
 import Link from "../src/components/Link";
+import { SITE_BASEURL } from "../utils/constants";
 import { writeFile } from "../utils/files";
 import { SubmissionsData } from "../utils/types";
 
@@ -17,7 +18,7 @@ export const buildSubmissions = (outDir: string, data: SubmissionsData) => {
         <div class="px-6 py-4 space-y-4">
           <h1 class="text-3xl font-bold">{question}</h1>
           <p>
-            <Link to="/">Back to all submissions</Link>
+            <Link to={`${SITE_BASEURL}/`}>Back to all submissions</Link>
           </p>
           {submissions}
         </div>

@@ -23,6 +23,8 @@ jobs:
         run: cd docs && bun install
       - name: Build site
         run: cd docs && bun build:all
+        env:
+          SITE_BASE_URL: ${{ secrets.SITE_BASEURL }}
       - name: Push to deployment branch
         uses: peaceiris/actions-gh-pages@v3
         with:
