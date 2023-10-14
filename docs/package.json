@@ -2,9 +2,14 @@
   "name": "docs",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "build:all": "bun run index.ts && bun build:css",
+    "build:css": "tailwindcss -i ./src/styles.css -o ../_docs/styles.css"
+  },
   "devDependencies": {
     "bun-types": "latest",
-    "hono": "^3.7.6"
+    "hono": "^3.7.6",
+    "tailwindcss": "^3.3.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
